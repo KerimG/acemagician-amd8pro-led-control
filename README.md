@@ -33,10 +33,12 @@ systemd unit, `am08pro-led.service`.
 
 | Hardware | BIOS | Result |
 | --- | --- | --- |
-| AM08 Pro, Ryzen 7 7735HS | `AM08ProP01_P5C5V06` (2023-04-14) | `status` and `off` work |
+| AM08 Pro, Ryzen 7 7735HS | `AM08ProP01_P5C5V06` (2023-04-14) | `status`, `off` and the boot service work |
 
-The other modes and the `install` service use the same code path but have not
-been confirmed on hardware yet.
+On this unit the controller keeps the mode across a warm reboot by itself, so
+the service matters after a full power loss. That case, resume from suspend,
+and the modes other than `off` use the same code path but have not been
+confirmed on hardware yet.
 
 ## How it works
 
